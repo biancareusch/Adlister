@@ -18,7 +18,7 @@
 <div class="container">
     <h1>Ad Overview</h1>
 
-        <div class="col-md-6">
+        <div class="col-md-9">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
         </div>

@@ -16,18 +16,15 @@ public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
-
     }
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Ads adsDao = DaoFactory.getAdsDao();
-        String adIDString = request.getParameter("adID");
-        Long adID = Long.valueOf(adIDString);
-        Ad foundAD = adsDao.findAd(adID);
+        String ad_ID = request.getParameter("ad-ID");
+        System.out.println("ad_ID = " + ad_ID);
 
-        System.out.println("this is adID" + adID + " and this is adIdString" + adIDString);
-        request.setAttribute("ad", foundAD);
+        Long adLong = Long.valueOf(ad_ID);
+        System.out.println("adLong = " + adLong);
+
+        request.getSession().setAttribute("adID", adLong);
         response.sendRedirect("/ads/detail");
     }
 

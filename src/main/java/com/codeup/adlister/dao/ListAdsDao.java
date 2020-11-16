@@ -29,20 +29,21 @@ public class ListAdsDao implements Ads {
         ads.add(ad);
         return ad.getId();
     }
-    public Ad findAd(Long adID) {
-        // make sure we have ads
-        if (ads == null) {
-            ads = generateAds();
-        }
-        //find Ad that has the id of adID
-        List<Ad> ads = this.generateAds();
-        for ( Ad ad : ads) {
-            if(ad.getId() == (adID)){
-                return ad;
-            }
-        }
-       return null;
-}
+
+//    public Ad findAd(Long adID) {
+//        // make sure we have ads
+//        if (ads == null) {
+//            ads = generateAds();
+//        }
+//        //find Ad that has the id of adID
+//        List<Ad> ads = this.generateAds();
+//        for ( Ad ad : ads) {
+//            if(ad.getId() == (adID)){
+//                return ad;
+//            }
+//        }
+//       return null;
+//}
 
 
     private List<Ad> generateAds() {

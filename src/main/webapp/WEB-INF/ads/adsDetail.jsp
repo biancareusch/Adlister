@@ -5,6 +5,7 @@
   Time: 11:21 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,14 +18,16 @@
 
 <div class="container">
     <h1>Ad Overview</h1>
-
-        <div class="col-md-9">
-            <h1>${ad}</h1>
+    <h1>Ad ID  = ${sessionScope.adID}</h1>
+<c:forEach var="ad" items="${ads}">
+<%--    <c:if test="${ad.id} == ${sessionScope.adID}">--%>
+    <div class="col-md-9">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <p>${ad.user_id}</p>
         </div>
-
+<%--    </c:if>--%>
+</c:forEach>
 </div>
 </body>
 </html>

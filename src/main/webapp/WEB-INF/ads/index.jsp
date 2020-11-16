@@ -14,19 +14,20 @@
 
 
     <c:forEach var="ad" items="${ads}">
-        <a href="/ads/detail">
+        <form action="/ads/detail" method="post">
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
+                    <p name="adID">${ad.id}</p>
                     <h2>${ad.title}</h2>
                 </div>
                 <div class="card-text">
                     <p>${ad.description}</p>
                 </div>
-
+<a href="/ads/detail" class="btn btn-primary" type="submit">See details...</a>
             </div>
         </div>
-        </a>
+        </form>
     </c:forEach>
 
 </div>

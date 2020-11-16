@@ -19,8 +19,10 @@
     <h1>Ad Overview</h1>
 
         <div class="col-md-9">
+            <h1>${ad}</h1>
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
+            <p>${ad.user_id}</p>
         </div>
 
 </div>

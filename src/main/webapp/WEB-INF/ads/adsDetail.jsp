@@ -18,15 +18,15 @@
 
 <div class="container">
     <h1>Ad Overview</h1>
-    <h1>Ad ID  = ${sessionScope.adID}</h1>
+
 <c:forEach var="ad" items="${ads}">
-<%--    <c:if test="${ad.id} == ${sessionScope.adID}">--%>
+    <c:if test="${ad.id == sessionScope.adID}">
     <div class="col-md-9">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <p>${ad.user_id}</p>
+<%--            <p>${ad.user_id}</p>--%>
         </div>
-<%--    </c:if>--%>
+    </c:if>
 </c:forEach>
 </div>
 </body>

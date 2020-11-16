@@ -22,7 +22,7 @@
                 <div class="card-text">
                     <p>${ad.description}</p>
                 </div>
-                <form action="../ads/index" method="POST">
+                <form action="../ads" method="POST">
                     <input name="ad-ID" id="ad-ID" type="number" value="${ad.id}">
                     <input type="submit" class="btn btn-primary btn-block" value="see details...">
                 </form>

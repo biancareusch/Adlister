@@ -19,10 +19,7 @@ public class AdsIndexServlet extends HttpServlet {
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ad_ID = request.getParameter("ad-ID");
-        System.out.println("ad_ID = " + ad_ID);
-
         Long adLong = Long.valueOf(ad_ID);
-        System.out.println("adLong = " + adLong);
 
         request.getSession().setAttribute("adID", adLong);
         response.sendRedirect("/ads/detail");

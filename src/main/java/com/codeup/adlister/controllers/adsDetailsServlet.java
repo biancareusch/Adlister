@@ -21,7 +21,6 @@ public class adsDetailsServlet extends HttpServlet {
         }
         Ads adsDao = DaoFactory.getAdsDao();
         request.getSession().getAttribute("adID");
-        System.out.println("request.getSession().getAttribute(\"adID\"); = " + request.getSession().getAttribute("adID"));
 
         request.setAttribute("ads", adsDao.all());
         request.getRequestDispatcher("/WEB-INF/ads/adsDetail.jsp")

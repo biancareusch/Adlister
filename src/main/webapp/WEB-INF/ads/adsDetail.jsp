@@ -19,19 +19,11 @@
 <div class="container">
     <h1>Ad Overview</h1>
 
-    <h1>${sessionScope.ad.title}</h1>
-    <h2>${sessionScope.ad.description}</h2>
-    <h3>${sessionScope.ad.id}</h3>
-    <h4>${sessionScope.user.username}</h4>
-<%--    <c:forEach var="ad" items="${ads}">--%>
-<%--        <c:if test="${ad.id == sessionScope.adID}">--%>
-<%--            <div class="col-md-9">--%>
-<%--                <p>${ad.user_id}</p>--%>
-<%--                <h2>${ad.title}</h2>--%>
-<%--                <p>${ad.description}</p>--%>
-<%--            </div>--%>
-<%--        </c:if>--%>
-<%--    </c:forEach>--%>
+    <h1><c:out value="${sessionScope.ad.title}"/></h1>
+    <h2><c:out value="${sessionScope.ad.description}"/></h2>
+    <h3>Ad ID: <c:out value="${sessionScope.ad.id}"/></h3>
+    <h4> Created By: <c:out value="${sessionScope.user.username}"/></h4>
+
 </div>
 </body>
 </html>

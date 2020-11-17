@@ -17,15 +17,15 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <h2>${ad.title}</h2>
+                    <h2><c:out value="${ad.title}" /></h2>
                 </div>
                 <div class="card-text">
-                    <p>${ad.description}</p>
+                    <p><c:out value="${ad.description}"/></p>
                 </div>
                 <form action="../ads" method="POST">
-                    <input name="ad-ID" id="ad-ID" type="number" value="${ad.id}">
-                    <input name="userID" id="userID" type="number" value="${ad.userId}">
-                    <input type="submit" class="btn btn-primary btn-block" value="see details...">
+                    <input name="ad-ID" id="ad-ID" type="hidden" value="${ad.id}">
+                    <input name="userID" id="userID" type="hidden" value="${ad.userId}">
+                    <input type="submit" class="btn btn-primary" value="see details...">
                 </form>
             </div>
         </div>

@@ -17,12 +17,15 @@ public class AdsIndexServlet extends HttpServlet {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ad_ID = request.getParameter("ad-ID");
-        Long adLong = Long.valueOf(ad_ID);
-
-        request.getSession().setAttribute("adID", adLong);
-        response.sendRedirect("/ads/detail");
-    }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String ad_ID = request.getParameter("ad-ID");
+//        Long adLong = Long.valueOf(ad_ID);
+//        Ad ad = DaoFactory.getAdsDao().findByAdID(adLong);
+//
+//
+//        request.getSession().setAttribute("ad", ad);
+//        System.out.println("ad = " + ad);
+//        response.sendRedirect("/ads/detail");
+//    }
 
 }

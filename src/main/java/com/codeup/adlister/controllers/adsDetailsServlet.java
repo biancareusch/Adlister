@@ -22,7 +22,7 @@ public class adsDetailsServlet extends HttpServlet {
 
 
         request.getSession().getAttribute("ad");
-        request.getSession().getAttribute("user");
+        request.getSession().getAttribute("users");
 //        Ads adsDao = DaoFactory.getAdsDao();
 //        request.setAttribute("ads", adsDao.all());
         request.getRequestDispatcher("/WEB-INF/ads/adsDetail.jsp")

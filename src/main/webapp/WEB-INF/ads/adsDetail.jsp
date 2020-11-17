@@ -22,7 +22,7 @@
     <h1><c:out value="${sessionScope.ad.title}"/></h1>
     <h2><c:out value="${sessionScope.ad.description}"/></h2>
     <h3>Ad ID: <c:out value="${sessionScope.ad.id}"/></h3>
-    <h4> Created By: <c:out value="${sessionScope.user.username}"/></h4>
+    <h4> Created By: <c:out value="${sessionScope.users.username}"/></h4>
 
 </div>
 </body>

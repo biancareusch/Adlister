@@ -28,7 +28,7 @@ public class AdsIndexServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUserID(UserLong);
 
         request.getSession().setAttribute("ad", ad);
-        request.getSession().setAttribute("user", user);
+        request.getSession().setAttribute("users", user);
         response.sendRedirect("/ads/detail");
     }
 

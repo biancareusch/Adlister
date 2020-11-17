@@ -31,6 +31,6 @@ public class AdsIndexServlet extends HttpServlet {
         response.sendRedirect("/ads/detail");
         request.getSession().setAttribute("users", user);
     }
-        String ad_search = request.getParameter("ad-search");
-        request.getRequestDispatcher("/ads").forward(request, response);
+//        String ad_search = request.getParameter("ad-search");
+//        request.getRequestDispatcher("/ads").forward(request, response);
 }

@@ -2,9 +2,6 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,22 +26,6 @@ public class ListAdsDao implements Ads {
         ads.add(ad);
         return ad.getId();
     }
-
-    public Ad findByAdID(Long adID) {
-        // make sure we have ads
-        if (ads == null) {
-            ads = generateAds();
-        }
-        //find Ad that has the id of adID
-        List<Ad> ads = this.generateAds();
-        for ( Ad ad : ads) {
-            if(ad.getId() == (adID)){
-                return ad;
-            }
-        }
-       return null;
-}
-
 
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();

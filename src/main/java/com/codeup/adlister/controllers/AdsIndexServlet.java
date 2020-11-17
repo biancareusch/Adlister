@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
 public class AdsIndexServlet extends HttpServlet {
@@ -26,10 +27,10 @@ public class AdsIndexServlet extends HttpServlet {
         String user_ID = request.getParameter("userID");
         Long UserLong = Long.valueOf(user_ID);
         User user = DaoFactory.getUsersDao().findByUserID(UserLong);
-
         request.getSession().setAttribute("ad", ad);
-        request.getSession().setAttribute("users", user);
         response.sendRedirect("/ads/detail");
+        request.getSession().setAttribute("users", user);
     }
-
+        String ad_search = request.getParameter("ad-search");
+        request.getRequestDispatcher("/ads").forward(request, response);
 }

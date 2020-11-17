@@ -64,16 +64,18 @@ public class MySQLAdsDao implements Ads {
             String searchID = String.valueOf(adID);
             System.out.println("searchID = " + searchID);
             stmt.setString(1, searchID);
-            return extractAd(stmt.executeQuery());
+
+            ResultSet rs = stmt.executeQuery();
+            if (! rs.next()) {
+                return null;
+            }
+            return extractAd(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving this ad.", e);
         }
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
-            return null;
-        }
         return new Ad(
                 rs.getLong("id"),
                 rs.getLong("user_id"),
@@ -85,6 +87,7 @@ public class MySQLAdsDao implements Ads {
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
+            System.out.println(rs.getString("description"));
             ads.add(extractAd(rs));
         }
         return ads;

@@ -17,9 +17,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -55,18 +55,39 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad findByAdID(Long adID) {
+        PreparedStatement stmt = null;
+        String findQuery = "SELECT * FROM ads WHERE id = ? LIMIT 1";
+        try {
+            stmt = connection.prepareStatement(findQuery);
+            String searchID = String.valueOf(adID);
+            System.out.println("searchID = " + searchID);
+            stmt.setString(1, searchID);
+
+            ResultSet rs = stmt.executeQuery();
+            if (! rs.next()) {
+                return null;
+            }
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving this ad.", e);
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
+            System.out.println(rs.getString("description"));
             ads.add(extractAd(rs));
         }
         return ads;

@@ -24,6 +24,7 @@
                 </div>
                 <form action="../ads" method="POST">
                     <input name="ad-ID" id="ad-ID" type="number" value="${ad.id}">
+                    <input name="userID" id="userID" type="number" value="${ad.userId}">
                     <input type="submit" class="btn btn-primary btn-block" value="see details...">
                 </form>
             </div>

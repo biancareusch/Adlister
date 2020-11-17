@@ -3,6 +3,7 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.Ads;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,6 @@ import java.io.IOException;
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
-        System.out.println("DaoFactory.getAdsDao().all() = " + DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,9 +23,12 @@ public class AdsIndexServlet extends HttpServlet {
         Long adLong = Long.valueOf(ad_ID);
         Ad ad = DaoFactory.getAdsDao().findByAdID(adLong);
 
+        String user_ID = request.getParameter("userID");
+        Long UserLong = Long.valueOf(user_ID);
+        User user = DaoFactory.getUsersDao().findByUserID(UserLong);
 
         request.getSession().setAttribute("ad", ad);
-        System.out.println("ad = " + ad);
+        request.getSession().setAttribute("user", user);
         response.sendRedirect("/ads/detail");
     }
 

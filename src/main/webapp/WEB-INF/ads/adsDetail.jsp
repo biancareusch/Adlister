@@ -22,7 +22,7 @@
     <h1>${sessionScope.ad.title}</h1>
     <h2>${sessionScope.ad.description}</h2>
     <h3>${sessionScope.ad.id}</h3>
-    <h4>${sessionScope.ad.userId}</h4>
+    <h4>${sessionScope.user.username}</h4>
 <%--    <c:forEach var="ad" items="${ads}">--%>
 <%--        <c:if test="${ad.id == sessionScope.adID}">--%>
 <%--            <div class="col-md-9">--%>

@@ -36,12 +36,10 @@ public class MySQLusrPicDao implements UserPictures {
 
     @Override
     public Long insertPic(UserPicture userPic) {
-        String query = "INSERT INTO user_pictures(isMultipart, filePath, file) VALUES (?,?,?)";
+        String query = "INSERT INTO user_pictures(imgURL) VALUES (?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setBoolean(1, userPic.getMultipart());
-            stmt.setString(2, userPic.getPictureFilePath());
-            stmt.setBlob(3, userPic.getPictureFile());
+            stmt.setString(1, userPic.getImgURL());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -57,8 +55,7 @@ public class MySQLusrPicDao implements UserPictures {
         }
         return new UserPicture(
                 rs.getLong("id"),
-                rs.getString("filePath"),
-                rs.getBlob("fileBlob")
+                rs.getString("imgURL")
         );
     }
 }

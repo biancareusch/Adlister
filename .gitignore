@@ -2,7 +2,3 @@
 target/
 .idea/
 Config.java
-MySQLusrPicDao.java
-UserPicture.java
-UserPictures.java
-UploadServlet.java

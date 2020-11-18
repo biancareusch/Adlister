@@ -17,10 +17,17 @@ CREATE TABLE IF NOT EXISTS businesses
 (
     id            INT UNSIGNED     NOT NULL AUTO_INCREMENT,
     business_name VARCHAR(255)     NOT NULL UNIQUE,
+<<<<<<< HEAD
+    email         VARCHAR(255)     NOT NULL UNIQUE,
+    password      VARCHAR(95)      NOT NULL,
+    isAdmin       TINYINT UNSIGNED NOT NULL DEFAULT 0,
+#     address_id    INT UNSIGNED NOT NULL,
+=======
     address       VARCHAR(255)     NOT NULL UNIQUE,
     email         VARCHAR(255)     NOT NULL UNIQUE,
     password      VARCHAR(95)      NOT NULL,
     isAdmin       TINYINT UNSIGNED NOT NULL DEFAULT 0,
+>>>>>>> main
     PRIMARY KEY (id)
 );
 
@@ -52,6 +59,41 @@ CREATE TABLE IF NOT EXISTS ads
     FOREIGN KEY (business_id) REFERENCES businesses (id) ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
+# DROP TABLE IF EXISTS addresses;
+# CREATE TABLE IF NOT EXISTS addresses (
+#     id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
+#     street_address VARCHAR(250) NOT NULL,
+#     city_name   VARCHAR(150) NOT NULL,
+#     state       CHAR(2) NOT NULL,
+#     zipcode     CHAR(5) NOT NULL,
+#     user_id     INT UNSIGNED NOT NULL,
+#     business_id INT UNSIGNED NOT NULL,
+#     PRIMARY KEY (id),
+#     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+#     FOREIGN KEY (business_id) REFERENCES businesses (id) ON DELETE CASCADE
+# );
+
+# DROP TABLE IF EXISTS user_addresses;
+# CREATE TABLE IF NOT EXISTS user_addresses
+# (
+#     user_id INT UNSIGNED NOT NULL,
+#     address_id   INT UNSIGNED NOT NULL,
+#     FOREIGN KEY (user_id) REFERENCES users (id),
+#     FOREIGN KEY (address_id) REFERENCES addresses (id)
+# );
+#
+# DROP TABLE IF EXISTS businesses_addresses;
+# CREATE TABLE IF NOT EXISTS businesses_addresses
+# (
+#     business_id INT UNSIGNED NOT NULL,
+#     address_id   INT UNSIGNED NOT NULL,
+#     FOREIGN KEY (business_id) REFERENCES businesses (id),
+#     FOREIGN KEY (address_id) REFERENCES addresses (id)
+# );
+
+=======
+>>>>>>> main
 DROP TABLE IF EXISTS timestamps;
 CREATE TABLE IF NOT EXISTS timestamps
 (

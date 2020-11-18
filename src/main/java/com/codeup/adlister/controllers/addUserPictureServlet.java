@@ -1,5 +1,6 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.UserPicture;
 
 import javax.servlet.ServletException;
@@ -13,19 +14,18 @@ import java.io.IOException;
 import java.sql.Blob;
 
 @WebServlet(name = "UploadServlet")
-public class UploadServlet extends HttpServlet {
+public class addUserPictureServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+//
+//        request.getSession().getAttribute("userPic");
+//        request.setAttribute("userPic", DaoFactory.getGetUserPicDao().findByPicUserID(1).getImgURL());
+//
+//        System.out.println("DaoFactory.getGetUserPicDao().findByPicUserID(1).getImage = " + DaoFactory.getGetUserPicDao().findByPicUserID(1).getImgURL());
+//        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        Boolean isMultipart = request.getParameter("multipart");
-//        String filePath = request.getParameter("filePath");
-//        Image file = request.getParameter("file");
 
-
-//        UserPicture userPic = new UserPicture(isMultipart, filePath, (Blob) file);
 
     }
 }

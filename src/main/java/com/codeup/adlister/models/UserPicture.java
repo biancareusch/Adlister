@@ -1,25 +1,22 @@
 package com.codeup.adlister.models;
 
-import java.awt.*;
-import java.io.File;
-import java.sql.Blob;
 
 public class UserPicture {
     private long id;
     private String imgURL;
-
+    private long userID;
 
     public UserPicture(){}
 
-    public UserPicture(String imgURL){
+    public UserPicture(String imgURL, long userID){
         this.imgURL = imgURL;
+        this.userID = userID;
     }
 
     public UserPicture(long id, String imgURL){
         this.id = id;
         this.imgURL = imgURL;
     }
-
 
     public long getImgID(){
         return this.id;
@@ -32,4 +29,7 @@ public class UserPicture {
         this.imgURL = imgURL;
     }
 
+    public long getUserID(){
+        return this.userID;
+    }
 }

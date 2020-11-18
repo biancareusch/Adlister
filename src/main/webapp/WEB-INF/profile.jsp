@@ -14,7 +14,7 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
     <div class="container">
-        <h1>Here Are all the ads!</h1>
+        <h1>Here are your ads!</h1>
 
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6">

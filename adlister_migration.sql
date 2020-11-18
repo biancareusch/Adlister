@@ -17,10 +17,17 @@ CREATE TABLE IF NOT EXISTS businesses
 (
     id            INT UNSIGNED     NOT NULL AUTO_INCREMENT,
     business_name VARCHAR(255)     NOT NULL UNIQUE,
+<<<<<<< HEAD
     email         VARCHAR(255)     NOT NULL UNIQUE,
     password      VARCHAR(95)      NOT NULL,
     isAdmin       TINYINT UNSIGNED NOT NULL DEFAULT 0,
 #     address_id    INT UNSIGNED NOT NULL,
+=======
+    address       VARCHAR(255)     NOT NULL UNIQUE,
+    email         VARCHAR(255)     NOT NULL UNIQUE,
+    password      VARCHAR(95)      NOT NULL,
+    isAdmin       TINYINT UNSIGNED NOT NULL DEFAULT 0,
+>>>>>>> main
     PRIMARY KEY (id)
 );
 
@@ -52,6 +59,7 @@ CREATE TABLE IF NOT EXISTS ads
     FOREIGN KEY (business_id) REFERENCES businesses (id) ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
 # DROP TABLE IF EXISTS addresses;
 # CREATE TABLE IF NOT EXISTS addresses (
 #     id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -84,6 +92,8 @@ CREATE TABLE IF NOT EXISTS ads
 #     FOREIGN KEY (address_id) REFERENCES addresses (id)
 # );
 
+=======
+>>>>>>> main
 DROP TABLE IF EXISTS timestamps;
 CREATE TABLE IF NOT EXISTS timestamps
 (

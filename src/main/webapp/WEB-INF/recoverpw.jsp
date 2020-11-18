@@ -24,7 +24,7 @@
                         <img src="partials/forgot-pw.png" alt="locked" border="0">
                         <h2 class="text-center">Forgot Password?</h2>
                         <p>You can reset your password here.</p>
-                        <form action="/recoverpw" id="register-form" role="form" autocomplete="off" class="form" method="post">
+                        <form action="/resetpassword" id="register-form" role="form" autocomplete="off" class="form" method="post">
                             <div class="form-group col-md-12">
                                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
@@ -55,13 +55,13 @@
                             <div class="form-group col-md-6">
                                 <label for="new_password" class="col-sm-2 col-form-label">New Password</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="new_password">
+                                    <input type="text" class="form-control" id="new_password" name="new_password">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="confirm_new_password" class="col-sm-2 col-form-label">Confirm Password</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="confirm_new_password">
+                                    <input type="text" class="form-control" id="confirm_new_password" name="confirm_new_password">
                                 </div>
                             </div>
                             <div class="form-group">

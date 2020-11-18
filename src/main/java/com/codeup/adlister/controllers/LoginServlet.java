@@ -21,9 +21,10 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("inputUsername");
+        String password = request.getParameter("inputPassword");
+
         User user = DaoFactory.getUsersDao().findByUsername(username);
         if (user == null) {
             response.sendRedirect("/login");

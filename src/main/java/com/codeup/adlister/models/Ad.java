@@ -5,6 +5,8 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
+    /*Todo:Error*/
+    /*private long businessId;*/
 
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
@@ -13,10 +15,11 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(long userId, String title, String description) {
+    public Ad(long userId, String title, String description /*long businessId*/) {
         this.userId = userId;
         this.title = title;
         this.description = description;
+        //this.businessId = businessId; Todo:Error
     }
 
     public long getId() {
@@ -50,4 +53,13 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    /*Todo: Error
+    public long getBusinessId() {
+        return businessId;
+    }
+
+    public void setBusinessId(long businessId) {
+        this.businessId = businessId;
+    }*/
 }

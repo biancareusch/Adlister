@@ -10,30 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-
-
-//Todo: Make token for
-@WebServlet(name = "controllers.RecoverPwServlet", urlPatterns = "/resetpassword")
-public class RecoverPwServlet extends HttpServlet {
+@WebServlet(name = "controllers.ForgotPWServlet", urlPatterns = "/forgotpassword")
+public class ForgotPWServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/recoverpw.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/forgot_password.jsp").forward(request, response);
 	}
-
+/*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
-		/*String securityQuestionQ = request.getParameter("securityQuestionQ"); securityQuestionQ = null need value
-		String securityQuestionA = request.getParameter("securityQuestionA");*/
+		*//*String securityQuestionQ = request.getParameter("securityQuestionQ"); securityQuestionQ = null need value
+		String securityQuestionA = request.getParameter("securityQuestionA");*//*
 		String newPassword = request.getParameter("new_password");
 		String newPasswordConfirmation = request.getParameter("confirm_new_password");
 
 
 		User user = DaoFactory.getUsersDao().findByUsername(username);
 		boolean inputHasError = email.equals(user.getEmail())
-/*		                     || securityQuestionQ.equals(user.getSecurityQuestionQ())
-		                       || securityQuestionA.equals(user.getSecurityQuestionA())*/
+*//*		                     || securityQuestionQ.equals(user.getSecurityQuestionQ())
+		                       || securityQuestionA.equals(user.getSecurityQuestionA())*//*
 						|| newPassword.equals(newPasswordConfirmation);
 		boolean duplicatePw = Password.check(newPassword, user.getPassword());
 
@@ -44,5 +40,5 @@ public class RecoverPwServlet extends HttpServlet {
 		}
 		user.setPassword(newPassword);
 		response.sendRedirect("/login");
-	}
+	}*/
 }

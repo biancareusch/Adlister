@@ -67,15 +67,17 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-//    /*Todo:Alert!*/
-//    public Long recoverPw(User user) {
-//            String query = "UPDATE users users(username, email, password) VALUES (?)";
-//            try {
-//                PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-//                stmt.setString(3, user.setPassword());
-//                stmt.executeUpdate();
-//            }
-//    }
+    /*Todo:Alert!*/
+//   public Long pwReset(User user) {
+//        String query = "UPDATE users users(password) VALUES (?)";
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setString(3, user.setPassword());
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error updating new password", e);
+//        }
+//
 
 
     private User extractUser(ResultSet rs) throws SQLException {

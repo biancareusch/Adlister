@@ -2,19 +2,19 @@ package com.codeup.adlister.models;
 
 public class AdPicture {
     private long id;
-    private long adId;
+    private long adID;
     private String url;
 
     public AdPicture(){}
 
-    public AdPicture(long adId, String url) {
-        this.adId = adId;
+    public AdPicture(long adID, String url) {
+        this.adID = adID;
         this.url = url;
     }
 
-    public AdPicture(long id, long adId, String url) {
+    public AdPicture(long id, long userID, String url) {
         this.id = id;
-        this.adId = adId;
+        this.adID = userID;
         this.url = url;
     }
 
@@ -27,11 +27,11 @@ public class AdPicture {
     }
 
     public long getAdId() {
-        return adId;
+        return adID;
     }
 
     public void setAdId(long adId) {
-        this.adId = adId;
+        this.adID = adId;
     }
 
     public String getUrl() {

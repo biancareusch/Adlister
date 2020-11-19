@@ -5,6 +5,7 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
+    private long business_id = 0; //for now false by default
 
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
@@ -13,11 +14,18 @@ public class Ad {
         this.description = description;
     }
 
+    public Ad(long userId, String title, String description, long business_id) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.business_id = business_id;
+    }
     public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
     }
+
 
     public long getId() {
         return id;

@@ -23,7 +23,7 @@ public class MySQLadPicDao implements AdPictures{
     }
     @Override
     public AdPicture findByURL(String URL) {
-        String query = "SELECT * FROM ad_pictures WHERE url = ?";
+        String query = "SELECT * FROM ad_pictures WHERE ad_img_url = ?";
         try{
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, URL);
@@ -35,7 +35,7 @@ public class MySQLadPicDao implements AdPictures{
 
     @Override
     public AdPicture findByadIDAds(long UserID) {
-        String query = "SELECT * FROM ad_pictures WHERE adID = ?";
+        String query = "SELECT * FROM ad_pictures WHERE ad_id = ?";
         try{
             PreparedStatement stmt = connection.prepareStatement(query);
             String searchID = String.valueOf(UserID);
@@ -61,13 +61,14 @@ public class MySQLadPicDao implements AdPictures{
 
     @Override
     public Long insert(AdPicture adPic) {
-        String query = "INSERT INTO ad_pictures(id, adID,url) VALUES (?,?,?)";
+        String query = "INSERT INTO ad_pictures(id, ad_img_url,alt_text,ad_id) VALUES (?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             String idString = String.valueOf(adPic.getId());
             stmt.setString(1,idString );
-            stmt.setLong(2, adPic.getAdId());
-            stmt.setString(3, adPic.getUrl());
+            stmt.setString(2, adPic.getAdImgUrl());
+            stmt.setString(3, adPic.getAltText());
+            stmt.setLong(4, adPic.getAdId());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -78,7 +79,7 @@ public class MySQLadPicDao implements AdPictures{
     }
 
     public void updatePicURL(String newPicURL, long adID) {
-        String query = "UPDATE ad_pictures  SET  url = ? WHERE adID = ?";
+        String query = "UPDATE ad_pictures  SET ad_img_url = ? WHERE ad_id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, newPicURL);
@@ -95,7 +96,10 @@ public class MySQLadPicDao implements AdPictures{
         }
         return new AdPicture(
                 rs.getLong("id"),
-                rs.getString("URL")
+                rs.getString("URL"),
+                rs.getString("alt_text"),
+                rs.getLong("ad_id"),
+                rs.getString("create_time")
         );
     }
 

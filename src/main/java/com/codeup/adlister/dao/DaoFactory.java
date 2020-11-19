@@ -1,17 +1,21 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.BusinessAdPicture;
+
 public class DaoFactory {
-    private static Ads adsDao;
-    private static Users usersDao;
     private static AdCategories adCategoriesDao;
     private static AdPictures adPicturesDao;
-    private static Businesses businessesDao;
+    private static Ads adsDao;
+    private static BusinessAdCategories businessAdCategoriesDao;
+    private static BusinessAdPictures businessAdPicturesDao;
     private static BusinessAds businessAdsDao;
     private static BusinessCategories businessCategoriesDao;
-    private static BusinessAdCategories businessAdCategoriesDao;
+    private static Businesses businessesDao;
     private static BusinessPictures businessPicturesDao;
     private static Categories categoriesDao;
     private static UserPictures getUserPicDao;
+    private static Users usersDao;
+
 
 
     private static Config config = new Config();
@@ -96,6 +100,13 @@ public class DaoFactory {
             businessCategoriesDao = new MySQLBusinessCategoriesDao(config);
         }
         return businessCategoriesDao;
+    }
+
+    public static BusinessAdPictures getBusinessAdPicturesDao(){
+        if (businessAdPicturesDao == null) {
+            businessAdPicturesDao = new MySQLBusinessAdPicturesDao(config);
+        }
+        return businessAdPicturesDao;
     }
 
 }

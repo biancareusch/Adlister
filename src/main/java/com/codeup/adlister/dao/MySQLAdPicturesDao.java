@@ -38,16 +38,16 @@ public class MySQLAdPicturesDao implements AdPictures{
 
     @Override
     public Long insertPic(AdPicture adPicture) {
-        String query = "INSERT INTO ad_pictures(url) VALUES (?)";
+        String query = "INSERT INTO ad_pictures(ad_img_url) VALUES (?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, adPicture.getUrl());
+            stmt.setString(1, adPicture.getAdImgUrl());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            throw new RuntimeException("Error creating ad picture", e);
         }
     }
 
@@ -57,7 +57,10 @@ public class MySQLAdPicturesDao implements AdPictures{
         }
         return new AdPicture(
                 rs.getLong("id"),
-                rs.getString("url")
+                rs.getString("ad_img_url"),
+                rs.getString("alt_text"),
+                rs.getLong("ad_id"),
+                rs.getString("create_time")
         );
     }
 

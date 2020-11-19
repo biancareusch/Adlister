@@ -23,7 +23,7 @@ public class MySQLBusinessesDao implements Businesses {
 
     @Override
     public Business findByBusinessName(String businessName) {
-        String query = "SELECT * FROM businesses WHERE business_name = ? LIMIT 1";
+        String query = "SELECT * FROM businesses WHERE name = ? LIMIT 1";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, businessName);
@@ -41,25 +41,24 @@ public class MySQLBusinessesDao implements Businesses {
             stmt.setString(1, searchID);
             return extractBusiness(stmt.executeQuery());
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a business by business name", e);
+            throw new RuntimeException("Error finding a business by business id", e);
         }
     }
 
     @Override
     public Long insert(Business business) {
-        String query = "INSERT INTO businesses(business_name, email, password, isAdmin) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO businesses(name, email, password) VALUES (?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, business.getBusinessName());
             stmt.setString(2, business.getEmail());
             stmt.setString(3, business.getPassword());
-            stmt.setBoolean(4, business.getAdmin());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            throw new RuntimeException("Error creating new business", e);
         }
     }
 
@@ -80,10 +79,10 @@ public class MySQLBusinessesDao implements Businesses {
         }
         return new Business(
                 rs.getLong("id"),
-                rs.getString("business_name"),
+                rs.getBoolean("lister_type"),
+                rs.getString("name"),
                 rs.getString("email"),
-                rs.getString("password"),
-                rs.getBoolean("isAdmin")
+                rs.getString("password")
         );
     }
 

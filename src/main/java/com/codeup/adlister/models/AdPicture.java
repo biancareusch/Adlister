@@ -2,21 +2,39 @@ package com.codeup.adlister.models;
 
 public class AdPicture {
     private long id;
+    private String adImgUrl;
+    private String altText;
     private long adId;
-    private String url;
+    private String createTime;
 
     public AdPicture(){}
 
-    public AdPicture(long adId, String url) {
-        this.adId = adId;
-        this.url = url;
+    public AdPicture(String adImgUrl, String altText) {
+        this.adImgUrl = adImgUrl;
+        this.altText = altText;
     }
 
-    public AdPicture(long id, long adId, String url) {
-        this.id = id;
+    public AdPicture(String adImgUrl, String altText, long adId) {
+        this.adImgUrl = adImgUrl;
+        this.altText = altText;
         this.adId = adId;
-        this.url = url;
     }
+
+    public AdPicture(String adImgUrl, String altText, long adId, String createTime) {
+        this.adImgUrl = adImgUrl;
+        this.altText = altText;
+        this.adId = adId;
+        this.createTime = createTime;
+    }
+
+    public AdPicture(long id, String adImgUrl, String altText, long adId, String createTime) {
+        this.id = id;
+        this.adImgUrl = adImgUrl;
+        this.altText = altText;
+        this.adId = adId;
+        this.createTime = createTime;
+    }
+
 
     public long getId() {
         return id;
@@ -24,6 +42,22 @@ public class AdPicture {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getAdImgUrl() {
+        return adImgUrl;
+    }
+
+    public void setAdImgUrl(String adImgUrl) {
+        this.adImgUrl = adImgUrl;
+    }
+
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
     }
 
     public long getAdId() {
@@ -34,11 +68,11 @@ public class AdPicture {
         this.adId = adId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

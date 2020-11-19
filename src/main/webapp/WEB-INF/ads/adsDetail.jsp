@@ -25,5 +25,6 @@
     <h4> Created By: <c:out value="${sessionScope.users.username}"/></h4>
 
 </div>
+<jsp:include page="../partials/footer.jsp" />
 </body>
 </html>

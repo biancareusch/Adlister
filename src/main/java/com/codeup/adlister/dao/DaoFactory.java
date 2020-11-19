@@ -17,6 +17,8 @@ public class DaoFactory {
     private static UserEmails userEmailsDao;
     private static UserPictures userPicturesDao;
     private static UserProfiles userProfilesDao;
+    private static AdCategories adCategoriesDao;
+    private static BusinessAdCategories businessAdCategoriesDao;
 
     private static UserPictures getUserPicDao;
 
@@ -133,6 +135,20 @@ public class DaoFactory {
         }
         return getUserPicDao;
 
+    }
+
+    public static AdCategories getAdCategoriesDao() {
+        if (adCategoriesDao == null) {
+            adCategoriesDao = new MySQLAdCategoriesDao(config);
+        }
+        return adCategoriesDao;
+    }
+
+    public static BusinessAdCategories getBusinessAdCategoriesDao() {
+        if (businessAdCategoriesDao == null) {
+            businessAdCategoriesDao = new MySQLBusinessAdCategoriesDao(config);
+        }
+        return businessAdCategoriesDao;
     }
 
 }

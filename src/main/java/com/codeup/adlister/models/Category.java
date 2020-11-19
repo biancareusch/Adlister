@@ -2,8 +2,8 @@ package com.codeup.adlister.models;
 
 public class Category {
     private long id;
-    private String name;
     private long adId;
+    private String name;
 
     public Category () {}
 
@@ -12,10 +12,10 @@ public class Category {
         this.adId = adId;
     }
 
-    public Category(long id, String name, long adId) {
+    public Category(long id, long adId, String name) {
         this.id = id;
-        this.name = name;
         this.adId = adId;
+        this.name = name;
     }
 
     public long getId() {

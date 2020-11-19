@@ -40,7 +40,7 @@ public class MySQLusrPicDao implements UserPictures {
 
     @Override
     public Long insertPic(UserPicture userPic) {
-        String query = "INSERT INTO user_pictures(imgURL, user_id) VALUES (?,?)";
+        String query = "INSERT INTO user_pictures(user_img_url, user_id) VALUES (?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, userPic.getImgURL());
@@ -79,7 +79,7 @@ public class MySQLusrPicDao implements UserPictures {
 
     @Override
     public void updatePicURL(String newPicURL, long userID) {
-        String query = "UPDATE user_pictures  SET  imgURL = ? WHERE user_id = ?";
+        String query = "UPDATE user_pictures  SET  user_img_url = ? WHERE user_id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, newPicURL);

@@ -2,35 +2,47 @@ package com.codeup.adlister.models;
 
 public class BusinessPicture {
     private long id;
-    private String name;
-    private String title;
-    private String imgURL;
+    private String businessImgUrl;
+    private String altText;
     private long businessId;
+    private String createTime;
+
 
     public BusinessPicture(){}
 
-    public BusinessPicture(String imgURL){
-        this.imgURL = imgURL;
+    public BusinessPicture(String businessImgUrl) {
+        this.businessImgUrl = businessImgUrl;
     }
 
-    public BusinessPicture(long id, String imgURL){
+    public BusinessPicture(String businessImgUrl, String altText) {
+        this.businessImgUrl = businessImgUrl;
+        this.altText = altText;
+    }
+
+    public BusinessPicture(long id, String businessImgUrl) {
         this.id = id;
-        this.imgURL = imgURL;
+        this.businessImgUrl = businessImgUrl;
     }
 
-    public BusinessPicture(String name, String title, String url, long businessId) {
-        this.name = name;
-        this.title = title;
-        this.imgURL = url;
+    public BusinessPicture(String businessImgUrl, String altText, long businessId) {
+        this.businessImgUrl = businessImgUrl;
+        this.altText = altText;
         this.businessId = businessId;
     }
 
-    public BusinessPicture(long id, String name, String title, String url, long businessId) {
+    public BusinessPicture(long id, String businessImgUrl, String altText, long businessId) {
         this.id = id;
-        this.name = name;
-        this.title = title;
-        this.imgURL = url;
+        this.businessImgUrl = businessImgUrl;
+        this.altText = altText;
         this.businessId = businessId;
+    }
+
+    public BusinessPicture(long id, String businessImgUrl, String altText, long businessId, String createTime) {
+        this.id = id;
+        this.businessImgUrl = businessImgUrl;
+        this.altText = altText;
+        this.businessId = businessId;
+        this.createTime = createTime;
     }
 
     public long getId() {
@@ -41,28 +53,20 @@ public class BusinessPicture {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getBusinessImgUrl() {
+        return businessImgUrl;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBusinessImgUrl(String businessImgUrl) {
+        this.businessImgUrl = businessImgUrl;
     }
 
-    public String getTitle() {
-        return title;
+    public String getAltText() {
+        return altText;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUrl() {
-        return imgURL;
-    }
-
-    public void setUrl(String url) {
-        this.imgURL = url;
+    public void setAltText(String altText) {
+        this.altText = altText;
     }
 
     public long getBusinessId() {
@@ -71,5 +75,13 @@ public class BusinessPicture {
 
     public void setBusinessId(long businessId) {
         this.businessId = businessId;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

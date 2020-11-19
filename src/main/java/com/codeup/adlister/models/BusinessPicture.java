@@ -4,15 +4,24 @@ public class BusinessPicture {
     private long id;
     private String name;
     private String title;
-    private String url;
+    private String imgURL;
     private long businessId;
 
     public BusinessPicture(){}
 
+    public BusinessPicture(String imgURL){
+        this.imgURL = imgURL;
+    }
+
+    public BusinessPicture(long id, String imgURL){
+        this.id = id;
+        this.imgURL = imgURL;
+    }
+
     public BusinessPicture(String name, String title, String url, long businessId) {
         this.name = name;
         this.title = title;
-        this.url = url;
+        this.imgURL = url;
         this.businessId = businessId;
     }
 
@@ -20,7 +29,7 @@ public class BusinessPicture {
         this.id = id;
         this.name = name;
         this.title = title;
-        this.url = url;
+        this.imgURL = url;
         this.businessId = businessId;
     }
 
@@ -49,11 +58,11 @@ public class BusinessPicture {
     }
 
     public String getUrl() {
-        return url;
+        return imgURL;
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        this.imgURL = url;
     }
 
     public long getBusinessId() {

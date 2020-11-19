@@ -6,5 +6,5 @@ public interface SecurityAnswers {
     SecurityAnswer findByUserId (long userId);
     SecurityAnswer findByBusinessId (long businessId);
     SecurityAnswer findByAnswer (String answer);
-    Long insert(SecurityAnswer id);
+    Long insert(SecurityAnswer securityAnswer);
 }

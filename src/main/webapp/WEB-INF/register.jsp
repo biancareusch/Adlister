@@ -44,5 +44,6 @@
         </div>
         </c:if>
     </div>
+    <jsp:include page="partials/footer.jsp" />
 </body>
 </html>

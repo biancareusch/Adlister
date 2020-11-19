@@ -4,7 +4,9 @@ package com.codeup.adlister.models;
 public class UserPicture {
     private long id;
     private String imgURL;
+    private String altText;
     private long userID;
+    private String createTime;
 
     public UserPicture(){}
 
@@ -16,6 +18,62 @@ public class UserPicture {
     public UserPicture(long id, String imgURL){
         this.id = id;
         this.imgURL = imgURL;
+    }
+
+    public UserPicture(String imgURL, String altText, long userID) {
+        this.imgURL = imgURL;
+        this.altText = altText;
+        this.userID = userID;
+    }
+
+    public UserPicture(String imgURL, String altText, long userID, String createTime) {
+        this.imgURL = imgURL;
+        this.altText = altText;
+        this.userID = userID;
+        this.createTime = createTime;
+    }
+
+    public UserPicture(long id, String imgURL, String altText, long userID) {
+        this.id = id;
+        this.imgURL = imgURL;
+        this.altText = altText;
+        this.userID = userID;
+    }
+
+    public UserPicture(long id, String imgURL, String altText, long userID, String createTime) {
+        this.id = id;
+        this.imgURL = imgURL;
+        this.altText = altText;
+        this.userID = userID;
+        this.createTime = createTime;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public long getImgID(){

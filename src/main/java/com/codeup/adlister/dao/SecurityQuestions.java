@@ -6,5 +6,5 @@ public interface SecurityQuestions {
     SecurityQuestion findByUserId (long userId);
     SecurityQuestion findByBusinessId (long businessId);
     SecurityQuestion findByQuestion (String question);
-    Long insert(SecurityQuestion id);
+    Long insert(SecurityQuestion securityQuestion);
 }

@@ -34,23 +34,28 @@ public class MySQLusrPicDao implements UserPictures {
         }
     }
 
+    //add user id to picture object
+    //grab session id and ad it into insert pic
+
+
     @Override
     public Long insertPic(UserPicture userPic) {
-        String query = "INSERT INTO user_pictures(imgURL) VALUES (?)";
+        String query = "INSERT INTO user_pictures(imgURL, user_id) VALUES (?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, userPic.getImgURL());
+            stmt.setLong(2, userPic.getUserID());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            throw new RuntimeException("Error adding user picture", e);
         }
     }
 
     private UserPicture extractPic(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new UserPicture(
@@ -58,4 +63,32 @@ public class MySQLusrPicDao implements UserPictures {
                 rs.getString("imgURL")
         );
     }
+
+    @Override
+    public UserPicture findByPicUserID(long userID) {
+        String query = "SELECT * FROM user_pictures WHERE user_id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            String searchID = String.valueOf(userID);
+            stmt.setString(1, searchID);
+            return extractPic(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a picture by User ID", e);
+        }
+    }
+
+    @Override
+    public void updatePicURL(String newPicURL, long userID) {
+        String query = "UPDATE user_pictures  SET  imgURL = ? WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, newPicURL);
+            stmt.setLong(2, userID);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a picture by User ID", e);
+        }
+    }
+
+
 }

@@ -3,7 +3,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import java.sql.DriverManager;
-import com.mysql.cj.jdbc.Driver;
+
 import java.sql.*;
 
 
@@ -67,6 +67,24 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    public void update(User user){
+        String query = "UPDATE users SET username = ?, first_name = ?, last_name = ?, email = ?, password = ?";
+        query += " WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getFirstName());
+            stmt.setString(3, user.getLastName());
+            stmt.setString(4, user.getEmail());
+            stmt.setString(5, user.getPassword());
+            stmt.setLong(6,user.getId());
+            stmt.executeUpdate();
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+    }
 //    /*Todo:Alert!*/
 //    public Long recoverPw(User user) {
 //            String query = "UPDATE users users(username, email, password) VALUES (?)";

@@ -11,6 +11,7 @@
                 <c:when test="${sessionScope.logged_in}">
                     <li class="mx-5"><a href="/profile">Welcome, ${sessionScope.user.username}</a></li>
                     <li><a href="/logout">Logout</a></li>
+                    <li><a href="/update">Update</a></li>
                 </c:when>
                 <c:otherwise>
                     <li><a href="/login">Login</a></li>

@@ -27,7 +27,7 @@ public class User {
         this.id = id;
         this.username = username;
         this.email = email;
-        this.password = password;
+        setPassword(password);
         this.firstName = first_name;
         this.lastName = last_name;
         this.isAdmin = false;

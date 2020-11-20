@@ -11,7 +11,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Recovery Password"/>
     </jsp:include>
-    <link href="/WEB-INF/recoverpw.css" rel="stylesheet" type="text/css">
+    <link href="/css/recoverpw.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp"/>

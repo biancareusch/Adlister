@@ -70,5 +70,6 @@
     </div>
     </c:forEach>
     </p>
+    <jsp:include page="partials/footer.jsp" />
 </body>
 </html>

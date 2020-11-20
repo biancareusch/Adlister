@@ -6,6 +6,7 @@ import java.util.Date;
 public class UserPicture {
     private long id;
     private String imgURL;
+    private String altText;
     private long userID;
     private String alt_text;
 
@@ -21,12 +22,47 @@ public class UserPicture {
         this.imgURL = imgURL;
     }
 
-    public UserPicture(long id, String imgURL, String alt_text, long user_id) {
+    public UserPicture(long id, String imgURL, String altText, long userID) {
         this.id = id;
         this.imgURL = imgURL;
-        this.alt_text = alt_text;
-        this.userID = user_id;
+        this.altText = altText;
+        this.userID = userID;
     }
+
+    public UserPicture(long id, String imgURL, String altText, long userID, String createTime) {
+        this.id = id;
+        this.imgURL = imgURL;
+        this.altText = altText;
+        this.userID = userID;
+        this.createTime = createTime;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
 
     public long getImgID(){
         return this.id;

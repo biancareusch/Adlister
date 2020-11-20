@@ -1,18 +1,20 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.BusinessAdPicture;
+
 public class DaoFactory {
-    private static Ads adsDao;
-    private static Users usersDao;
-    private static UserPictures getUserPicDao;
-    private static AdPictures getGetAdsPicDao;
     private static AdCategories adCategoriesDao;
-//    private static BusinessAdCategories businessAdCategoriesDao;
-//    private static BusinessAdPictures businessAdPicturesDao;
-//    private static BusinessAds businessAdsDao;
-//    private static BusinessCategories businessCategoriesDao;
+    private static Ads adsDao;
+    private static BusinessAdCategories businessAdCategoriesDao;
+    private static BusinessAdPictures businessAdPicturesDao;
+    private static BusinessAds businessAdsDao;
+    private static BusinessCategories businessCategoriesDao;
     private static Businesses businessesDao;
     private static BusinessPictures businessPicturesDao;
     private static Categories categoriesDao;
+    private static UserPictures getUserPicDao;
+    private static Users usersDao;
+    private static AdPictures getGetAdsPicDao;
 
     private static Config config = new Config();
 
@@ -30,11 +32,70 @@ public class DaoFactory {
         return usersDao;
     }
 
+    public static Businesses getBusinessesDao() {
+        if (businessesDao == null) {
+            businessesDao = new MySQLBusinessesDao(config);
+        }
+        return businessesDao;
+    }
+
+    public static BusinessPictures getBusinessPicturesDao() {
+        if (businessPicturesDao == null) {
+            businessPicturesDao = new MySQLBusinessPicDao(config);
+        }
+        return businessPicturesDao;
+    }
+
+
+    public static Categories getCategoriesDao() {
+        if (categoriesDao == null) {
+            categoriesDao = new MySQLCategoriesDao(config);
+        }
+        return categoriesDao;
+    }
+
+
     public static UserPictures getGetUserPicDao() {
         if (getUserPicDao == null) {
             getUserPicDao = new MySQLusrPicDao(config);
         }
         return getUserPicDao;
+
+    }
+
+    public static AdCategories getAdCategoriesDao() {
+        if (adCategoriesDao == null) {
+            adCategoriesDao = new MySQLAdCategoriesDao(config);
+        }
+        return adCategoriesDao;
+    }
+
+    public static BusinessAdCategories getBusinessAdCategoriesDao() {
+        if (businessAdCategoriesDao == null) {
+            businessAdCategoriesDao = new MySQLBusinessAdCategoriesDao(config);
+        }
+        return businessAdCategoriesDao;
+    }
+
+    public static BusinessAds getBusinessAdsDao(){
+        if (businessAdsDao == null) {
+            businessAdsDao = new MySQLBusinessAdsDao(config);
+        }
+        return businessAdsDao;
+    }
+
+    public static BusinessCategories getBusinessCategoriesDao() {
+        if (businessCategoriesDao == null) {
+            businessCategoriesDao = new MySQLBusinessCategoriesDao(config);
+        }
+        return businessCategoriesDao;
+    }
+
+    public static BusinessAdPictures getBusinessAdPicturesDao(){
+        if (businessAdPicturesDao == null) {
+            businessAdPicturesDao = new MySQLBusinessAdPicturesDao(config);
+        }
+        return businessAdPicturesDao;
     }
 
     public static AdPictures getGetAdsPicDao() {
@@ -44,60 +105,60 @@ public class DaoFactory {
         return getGetAdsPicDao;
     }
 
-//    public static Businesses getBusinessesDao() {
-//        if (businessesDao == null) {
-//            businessesDao = new MySQLBusinessesDao(config);
-//        }
-//        return businessesDao;
-//    }
+    public static Businesses getBusinessesDao() {
+        if (businessesDao == null) {
+            businessesDao = new MySQLBusinessesDao(config);
+        }
+        return businessesDao;
+    }
 
-//    public static BusinessPictures getBusinessPicturesDao() {
-//        if (businessPicturesDao == null) {
-//            businessPicturesDao = new MySQLBusinessPicDao(config);
-//        }
-//        return businessPicturesDao;
-//    }
+    public static BusinessPictures getBusinessPicturesDao() {
+        if (businessPicturesDao == null) {
+            businessPicturesDao = new MySQLBusinessPicDao(config);
+        }
+        return businessPicturesDao;
+    }
 
-//    public static Categories getCategoriesDao() {
-//        if (categoriesDao == null) {
-//            categoriesDao = new MySQLCategoriesDao(config);
-//        }
-//        return categoriesDao;
-//    }
+    public static Categories getCategoriesDao() {
+        if (categoriesDao == null) {
+            categoriesDao = new MySQLCategoriesDao(config);
+        }
+        return categoriesDao;
+    }
 
-//    public static AdCategories getAdCategoriesDao() {
-//        if (adCategoriesDao == null) {
-//            adCategoriesDao = new MySQLAdCategoriesDao(config);
-//        }
-//        return adCategoriesDao;
-//    }
+    public static AdCategories getAdCategoriesDao() {
+        if (adCategoriesDao == null) {
+            adCategoriesDao = new MySQLAdCategoriesDao(config);
+        }
+        return adCategoriesDao;
+    }
 
-//    public static BusinessAdCategories getBusinessAdCategoriesDao() {
-//        if (businessAdCategoriesDao == null) {
-//            businessAdCategoriesDao = new MySQLBusinessAdCategoriesDao(config);
-//        }
-//        return businessAdCategoriesDao;
-//    }
-//
-//    public static BusinessAds getBusinessAdsDao(){
-//        if (businessAdsDao == null) {
-//            businessAdsDao = new MySQLBusinessAdsDao(config);
-//        }
-//        return businessAdsDao;
-//    }
-//
-//    public static BusinessCategories getBusinessCategoriesDao() {
-//        if (businessCategoriesDao == null) {
-//            businessCategoriesDao = new MySQLBusinessCategoriesDao(config);
-//        }
-//        return businessCategoriesDao;
-//    }
-//
-//    public static BusinessAdPictures getBusinessAdPicturesDao(){
-//        if (businessAdPicturesDao == null) {
-//            businessAdPicturesDao = new MySQLBusinessAdPicturesDao(config);
-//        }
-//        return businessAdPicturesDao;
-//    }
+    public static BusinessAdCategories getBusinessAdCategoriesDao() {
+        if (businessAdCategoriesDao == null) {
+            businessAdCategoriesDao = new MySQLBusinessAdCategoriesDao(config);
+        }
+        return businessAdCategoriesDao;
+    }
+
+    public static BusinessAds getBusinessAdsDao(){
+        if (businessAdsDao == null) {
+            businessAdsDao = new MySQLBusinessAdsDao(config);
+        }
+        return businessAdsDao;
+    }
+
+    public static BusinessCategories getBusinessCategoriesDao() {
+        if (businessCategoriesDao == null) {
+            businessCategoriesDao = new MySQLBusinessCategoriesDao(config);
+        }
+        return businessCategoriesDao;
+    }
+
+    public static BusinessAdPictures getBusinessAdPicturesDao(){
+        if (businessAdPicturesDao == null) {
+           businessAdPicturesDao = new MySQLBusinessAdPicturesDao(config);
+        }
+        return businessAdPicturesDao;
+    }
 
 }

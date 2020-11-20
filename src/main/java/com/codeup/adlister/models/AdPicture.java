@@ -23,12 +23,29 @@ public class AdPicture {
 
     }
 
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getAdImgUrl() {
+        return adImgUrl;
+    }
+
+    public void setAdImgUrl(String adImgUrl) {
+        this.adImgUrl = adImgUrl;
+    }
+
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
     }
 
     public long getAdId() {
@@ -39,12 +56,12 @@ public class AdPicture {
         this.adID = adId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public String getAltText(){

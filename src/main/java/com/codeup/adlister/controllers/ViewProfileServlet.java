@@ -39,10 +39,10 @@ public class ViewProfileServlet extends HttpServlet {
         User currentUser = (User) request.getSession().getAttribute("user");
         String imgURL = request.getParameter("userPicture");
 
-        //creating new userPic instance with the user_id column equal to current user user_id
+        //creating new userPic instance with the user_id column equal to currentUser user_id
         UserPicture userPic = new UserPicture(imgURL, currentUser.getId());
         UserPicture userPicDao = DaoFactory.getGetUserPicDao().findPicByUserID(currentUser.getId());
-        System.out.println("currentUser ID = " + currentUser.getId());
+
         if (imgURL.isEmpty()) {
             // makes sure userPic doesn't change, and gives an error
             request.getSession().setAttribute("PictureError", "error");

@@ -2,20 +2,25 @@ package com.codeup.adlister.models;
 
 public class AdPicture {
     private long id;
-    private long adID;
     private String url;
+    private String alt_text;
+    private long adID;
+
 
     public AdPicture(){}
 
-    public AdPicture(long adID, String url) {
-        this.adID = adID;
+    public AdPicture( String url, String alt_text, long adID) {
         this.url = url;
+        this.alt_text = alt_text;
+        this.adID = adID;
     }
 
-    public AdPicture(long id, long userID, String url) {
+    public AdPicture(long id, String url, String alt_text, long adID) {
         this.id = id;
-        this.adID = userID;
         this.url = url;
+        this.alt_text = alt_text;
+        this.adID = adID;
+
     }
 
     public long getId() {
@@ -40,5 +45,9 @@ public class AdPicture {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getAltText(){
+        return this.alt_text;
     }
 }

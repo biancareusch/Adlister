@@ -35,10 +35,6 @@ public class MySQLusrPicDao implements UserPictures {
         }
     }
 
-    //add user id to picture object
-    //grab session id and ad it into insert pic
-
-
     @Override
     public Long insertPic(UserPicture userPic) {
         String query = "INSERT INTO user_pictures(user_img_url, alt_text, user_id) VALUES (?,?,?)";
